@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:restMockAction name="/maps/api/geocode/json" method="GET" resourcePath="/maps/api/geocode/json" id="e34635cd-8be0-4480-a7c3-947dd0774285" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="e34635cd-8be0-4480-a7c3-947dd0774285fileName">%2Fmaps%2Fapi%2Fgeocode%2Fjson</con:setting></con:settings><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchConfig/><con:dispatchXPath/><con:parameterDispatcherRuleContainer/><con:routeScript/><con:response name="Response 1" id="bbdc7f44-bdd5-4b41-bb95-61511f27db46" httpResponseStatus="200" mediaType="application/json" encoding="UTF-8" dataSource=""><con:settings/><con:responseContent>{
+	"Status": "super OK"
+}
+</con:responseContent></con:response><con:response name="RequestBack" id="1b33370a-cf00-4dfc-8d6f-16b8c3d6bf14" httpResponseStatus="200" mediaType="application/json" dataSource=""><con:settings/><con:script>
+</con:script><con:responseContent>{
+	"request" : 
+}
+</con:responseContent></con:response></con:restMockAction>
