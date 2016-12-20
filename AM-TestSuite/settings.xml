@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="b87ee1f0-921f-4b34-b8ac-9bf292cc86e4" name="AM TestSuite" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="b87ee1f0-921f-4b34-b8ac-9bf292cc86e4fileName">AM-TestSuite</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>
