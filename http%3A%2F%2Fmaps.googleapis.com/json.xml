@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:resource name="json" path="/maps/api/geocode/json" id="5eba2fea-04a0-4300-9687-a8ca493c1fb7" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://eviware.com/soapui/config">
+<con:resource name="json" path="/maps/api/geocode/json" id="5eba2fea-04a0-4300-9687-a8ca493c1fb7" xmlns:con="http://eviware.com/soapui/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <con:settings>
     <con:setting id="5eba2fea-04a0-4300-9687-a8ca493c1fb7fileName">json</con:setting>
   </con:settings>
