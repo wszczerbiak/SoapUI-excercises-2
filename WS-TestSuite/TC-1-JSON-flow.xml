@@ -1,7 +1,612 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="f3e9b067-4d6b-4e8d-a71b-be27787ce69d" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="TC 1 JSON flow" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">true</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting><con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@disable_log">false</con:setting><con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@errors_only">false</con:setting><con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@follow">false</con:setting><con:setting id="f3e9b067-4d6b-4e8d-a71b-be27787ce69dfileName">TC-1-JSON-flow</con:setting></con:settings><con:savedRecentRuns>5</con:savedRecentRuns><con:testStep type="manualTestStep" name="Wprowadź adres z ręki" id="1d9e8056-e59b-4f70-8123-50f8f496834c" disabled="true"><con:description>Wprowadź adres</con:description><con:settings/><con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:expectedResult>Adres zostanie użyty w kolejnym stepie</con:expectedResult></con:config></con:testStep><con:testStep type="transfer" name="Przenieś wprowadzony adres do requestu i do parametrów" id="cff67b43-8558-40cb-b200-dd95ecae60b4" disabled="true"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>adres wprowadzony ręcznie</con:name><con:sourceType>Result</con:sourceType><con:sourceStep>Wprowadź adres z ręki</con:sourceStep><con:sourcePath/><con:targetType>address</con:targetType><con:targetStep>1. Sprawdź adres</con:targetStep><con:targetPath/><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false"><con:name>adres z ręki do parametrów</con:name><con:sourceType>Result</con:sourceType><con:sourceStep>Wprowadź adres z ręki</con:sourceStep><con:sourcePath/><con:targetType>Adres z requestu</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/><con:type>JSONPATH</con:type><con:targetTransferType>XPATH</con:targetTransferType><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="datasource" name="DataSource" id="c054ab87-0f73-45b4-92d1-88d622a99fdb"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>${#Project#Files_location}/!input.xlsx</file><worksheet/><cell>A1</cell><ignoreEmpty>false</ignoreEmpty></con:configuration></con:dataSource><con:property>address</con:property><con:completeLastOperation>true</con:completeLastOperation><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="1. Sprawdź adres" id="1ead31dd-a3c8-477b-bc25-918ae161b87d"><con:settings/><con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="1. Sprawdź adres" id="9607ecd1-f1de-4844-a10c-f62e55c7b78b" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@dump-file">${#Project#Files_location}/Adres${#[WS TestSuite#TC 1 JSON flow]#licznik petli}.txt</con:setting><con:setting id="com.eviware.soapui.settings.CommonSettings@entitizeProperties">false</con:setting></con:settings><con:endpoint>http://maps.googleapis.com</con:endpoint><con:request/><con:originalUri>http://maps.googleapis.com/maps/api/geocode/json</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="2d065060-4631-46a3-98fa-65649539dfca" name="Valid HTTP Status Codes (200)"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="address" value="${DataSource#address}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="transfer" name="Przenieś dzielnicę z responsa do requestu" id="5782c8dc-2e4d-4516-8b9c-031c00e0fae8"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>long_name</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>1. Sprawdź adres</con:sourceStep><con:sourcePath>$['results'][0]['address_components'][2]['long_name']</con:sourcePath><con:targetType>address</con:targetType><con:targetStep>2. Sprawdź dzielnicę</con:targetStep><con:targetPath/><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="restrequest" name="2. Sprawdź dzielnicę" id="a61226cd-5f7a-47cd-83bc-401a79c7186a"><con:settings/><con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="2. Sprawdź dzielnicę" id="9607ecd1-f1de-4844-a10c-f62e55c7b78b" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@dump-file">${#Project#Files_location}/Dzielnica${#[WS TestSuite#TC 1 JSON flow]#licznik petli}.txt</con:setting><con:setting id="com.eviware.soapui.settings.CommonSettings@entitizeProperties">false</con:setting><con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@disable-property-expansions">false</con:setting></con:settings><con:endpoint>http://maps.googleapis.com</con:endpoint><con:request/><con:originalUri>http://maps.googleapis.com/maps/api/geocode/json</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="10181729-5517-4f2d-8bdb-094c052ee622" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="address" value="Śródmieście" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="CreateAndWaitForRemoveFile" name="Stwórz plik" id="3f22b2b6-b694-45a1-9ac1-0c6892b3d1f0"><con:settings/><con:config><FileName>CreatedFile.txt</FileName><FileContent>Krupówki 22</FileContent><FolderPath>${#Project#Files_location}</FolderPath><Timeout>0</Timeout><WaitForFileRemove>false</WaitForFileRemove><OverwriteExisting>true</OverwriteExisting><FileEncoding>Unicode</FileEncoding><Precision>seconds</Precision></con:config></con:testStep><con:testStep type="transfer" name="Zapisz dzielnicę z responsu do pliku i do mocka" id="977eacf8-9223-4309-9542-1b610c178ad2"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>do pliku</con:name><con:sourceType>Adres z requestu</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath/><con:targetType>fileContent</con:targetType><con:targetStep>Stwórz plik</con:targetStep><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>adres do requestu do mocka</con:name><con:sourceType>Adres - formatted - z responsu</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath/><con:targetType>address</con:targetType><con:targetStep>Wyslij request to mocka</con:targetStep><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="datagen" name="DataGen - licznik" id="ef007292-91c8-4a10-8169-d6d102530587"><con:settings/><con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:property type="Number"><con:configuration><start>0</start><end/><step>1</step><pattern/><random>false</random><persist>false</persist></con:configuration><con:name>licznik</con:name><con:mode>STEP</con:mode><con:shared>false</con:shared></con:property></con:config></con:testStep><con:testStep type="transfer" name="Zapisz properties" id="629aeccf-1047-4a08-898e-b6c31a744021"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>adres z requestu</con:name><con:sourceType>address</con:sourceType><con:sourceStep>DataSource</con:sourceStep><con:sourcePath/><con:targetType>Adres z requestu</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false" entitize="false" ignoreEmpty="false" transferChildNodes="false"><con:name>formatted_address</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>1. Sprawdź adres</con:sourceStep><con:sourcePath>$['results'][0]['formatted_address']</con:sourcePath><con:targetType>Adres - formatted - z responsu</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>dzielnica z requestu</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>1. Sprawdź adres</con:sourceStep><con:sourcePath>$['results'][0]['address_components'][2]['long_name']</con:sourcePath><con:targetType>Dzielnica z requestu</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false" entitize="false"><con:name>formatted_address - dzielnica</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>2. Sprawdź dzielnicę</con:sourceStep><con:sourcePath>$['results'][0]['formatted_address']</con:sourcePath><con:targetType>Dzielnica - long - z responsu</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:targetPath/><con:type>JSONPATH</con:type><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>ustaw licznik</con:name><con:sourceType>licznik</con:sourceType><con:sourceStep>DataGen - licznik</con:sourceStep><con:sourcePath/><con:targetType>licznik petli</con:targetType><con:targetStep>#TestCase#</con:targetStep><con:type>XPATH</con:type><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="transfer" name="Zapisz do parametrow DataSink" id="8f6f4002-d7c3-4897-a364-8a76708ee62d"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>do p1</con:name><con:sourceType>Adres - formatted - z responsu</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:sourcePath/><con:targetType>p1</con:targetType><con:targetStep>DataSink</con:targetStep><con:targetPath/><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>do p2</con:name><con:sourceType>Dzielnica - long - z responsu</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:targetType>p2</con:targetType><con:targetStep>DataSink</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>do p3</con:name><con:sourceType>Dzielnica z requestu</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:targetType>p3</con:targetType><con:targetStep>DataSink</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>do p4</con:name><con:sourceType>Dzielnica - long - z responsu</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:targetType>p4</con:targetType><con:targetStep>DataSink</con:targetStep><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>do p5</con:name><con:sourceType>licznik petli</con:sourceType><con:sourceStep>#TestCase#</con:sourceStep><con:targetType>p5</con:targetType><con:targetStep>DataSink</con:targetStep><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="datasink" name="DataSink" id="9cd064e7-4899-45fb-8ea8-cfb1141e2c4f"><con:settings/><con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSink type="Excel"><con:configuration><file/><outfile>${#Project#Files_location}/parametry.xlsx</outfile><worksheet>Sheet1</worksheet><cell>A1</cell><evaluateFormulas>false</evaluateFormulas></con:configuration></con:dataSink><con:properties><con:property><con:name>p5</con:name><con:value>6</con:value></con:property><con:property><con:name>p1</con:name><con:value>Piotrkowska 10, Łódź, Poland</con:value></con:property><con:property><con:name>p2</con:name><con:value>Śródmieście, Warsaw, Poland</con:value></con:property><con:property><con:name>p3</con:name><con:value>Śródmieście</con:value></con:property><con:property><con:name>p4</con:name><con:value>Śródmieście, Warsaw, Poland</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="delay" name="Delay" id="2609c3cb-a669-4690-8105-398fd9819c9f"><con:settings/><con:config><delay>1000</delay></con:config></con:testStep><con:testStep type="datasourceloop" name="DataSource Loop" id="15642ae3-29f1-4620-9ea9-a91f744b5841"><con:settings/><con:config><dataSourceStep>DataSource</dataSourceStep><targetStep>1. Sprawdź adres</targetStep></con:config></con:testStep><con:testStep type="VirtRunnerTestStep" name="Virt Runner - run mock" id="e2ad7806-69e7-44cb-92e2-663fc96ed97d"><con:settings/><con:config><url>localhost</url><server>http://maps.googleapis.com Virt</server><action>run</action></con:config></con:testStep><con:testStep type="restrequest" name="Wyslij request to mocka" id="6539a4b9-3018-4fea-ac8a-2dc16c2eed98"><con:settings/><con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Wyslij request to mocka" id="9607ecd1-f1de-4844-a10c-f62e55c7b78b" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080/</con:endpoint><con:request/><con:originalUri>http://maps.googleapis.com/maps/api/geocode/json</con:originalUri><con:assertion type="Valid HTTP Status Codes" id="9a9c0fd0-59c8-402d-a251-9f2a7f0c1c9e" name="Valid HTTP Status Codes"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="JsonPath Match" id="2fe2ba7f-1166-423c-8e38-a87f8e01d353" name="Match content of [Status]"><con:configuration><path>$['Status']</path><content>super OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
-  <con:entry key="address" value="Krupówki 22, Zakopane, Poland"/>
-  <con:entry key="sensor" value="sensor"/>
-</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="VirtRunnerTestStep" name="Virt Runner - stop mock" id="559ec026-b369-40f9-9464-4f949a9f1373"><con:settings/><con:config><url>localhost</url><server>http://maps.googleapis.com Virt</server><action>stop</action></con:config></con:testStep><con:testStep type="assertionteststep" name="Assertion" id="acb6d54c-bcdc-40ef-9931-14541b298a21"><con:settings/><con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:entry><con:id>ac18b407-4ab0-4fc9-9dd3-8bdc244888e2</con:id><con:isGroup>false</con:isGroup><con:sourceId>f3e9b067-4d6b-4e8d-a71b-be27787ce69d</con:sourceId><con:propertyName>licznik petli</con:propertyName><con:assertion type="Simple Equals" name="Equals" id="4c7fa8a6-1692-4f38-9e7b-d23a042a15f4"><con:configuration><patternText>6</patternText><caseSensitive>false</caseSensitive></con:configuration></con:assertion></con:entry><con:entry><con:id>da2599a1-73f9-44e4-bf9d-dbedde2f1512</con:id><con:isGroup>false</con:isGroup><con:sourceId>1ead31dd-a3c8-477b-bc25-918ae161b87d</con:sourceId><con:propertyName>Response</con:propertyName><con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="c45c4683-67fa-455d-be86-253d3c0a4fbb"><con:settings/><con:configuration><codes>200</codes></con:configuration></con:assertion></con:entry></con:config></con:testStep><con:testStep type="httprequest" name="HTTP Request" id="f2f0e7eb-88f0-4b4b-b829-1aeb2eec2191"><con:settings/><con:config method="GET" xsi:type="con:HttpRequest" id="9feae7a8-a253-4205-a3d2-e7e4ae7575f6" name="HTTP Request" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://google.pl</con:endpoint><con:request/><con:assertion type="XPath Match" id="2aa63ed0-4aec-4380-9ae5-4b31080949ba" name="Match content of [b]"><con:configuration><path>//html[1]/body[1]/div[1]/div[1]/nobr[1]/b[1]/text()</path><content>Wyszukiwarka</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:parameters/></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script" id="1fb85a79-8eef-4267-8eea-57273c3450de"><con:settings/><con:config><script>def adreszrequestu = context.expand( '${#TestCase#Adres z requestu}' )
-log.info adreszrequestu
-</script></con:config></con:testStep><con:testStep type="propertyWaitTestStep" name="Property Wait" id="035e4228-571a-462d-a5e1-8bd580a4a31d" disabled="true"><con:settings/><con:config><scope>Environment Properties</scope><projectName>REST Testing Training</projectName><testSuiteName>WS TestSuite</testSuiteName><mockServiceName/><mockOperationName/><mockResponseName/><propertyName/><compareMethodName>Equals (==)</compareMethodName><valueToCompare/><timeout>10</timeout><timeoutMeasureName>seconds</timeoutMeasureName></con:config></con:testStep><con:tearDownScript/><con:properties><con:property><con:name>Adres z requestu</con:name><con:value>Piotrkowska 10</con:value></con:property><con:property><con:name>Adres - formatted - z responsu</con:name><con:value>Piotrkowska 10, Łódź, Poland</con:value></con:property><con:property><con:name>Dzielnica z requestu</con:name><con:value>Śródmieście</con:value></con:property><con:property><con:name>Dzielnica - long - z responsu</con:name><con:value>Śródmieście, Warsaw, Poland</con:value></con:property><con:property><con:name>licznik petli</con:name><con:value>6</con:value></con:property></con:properties><con:reportParameters/><con:breakPoints><con:testStepId>a61226cd-5f7a-47cd-83bc-401a79c7186a</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>5782c8dc-2e4d-4516-8b9c-031c00e0fae8</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1d9e8056-e59b-4f70-8123-50f8f496834c</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>cff67b43-8558-40cb-b200-dd95ecae60b4</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1ead31dd-a3c8-477b-bc25-918ae161b87d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>977eacf8-9223-4309-9542-1b610c178ad2</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>3f22b2b6-b694-45a1-9ac1-0c6892b3d1f0</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>6539a4b9-3018-4fea-ac8a-2dc16c2eed98</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>f2f0e7eb-88f0-4b4b-b829-1aeb2eec2191</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>c054ab87-0f73-45b4-92d1-88d622a99fdb</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>15642ae3-29f1-4620-9ea9-a91f744b5841</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>e2ad7806-69e7-44cb-92e2-663fc96ed97d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>559ec026-b369-40f9-9464-4f949a9f1373</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>8f6f4002-d7c3-4897-a364-8a76708ee62d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>9cd064e7-4899-45fb-8ea8-cfb1141e2c4f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>629aeccf-1047-4a08-898e-b6c31a744021</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>ef007292-91c8-4a10-8169-d6d102530587</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>2609c3cb-a669-4690-8105-398fd9819c9f</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>1fb85a79-8eef-4267-8eea-57273c3450de</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>035e4228-571a-462d-a5e1-8bd580a4a31d</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>acb6d54c-bcdc-40ef-9931-14541b298a21</con:testStepId><con:status>ENABLED</con:status><con:properties/></con:breakPoints></con:testCase>
+<con:testCase id="f3e9b067-4d6b-4e8d-a71b-be27787ce69d" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="TC 1 JSON flow" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword="" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings>
+    <con:setting id="IncludeOverview">true</con:setting>
+    <con:setting id="IncludeResults">true</con:setting>
+    <con:setting id="FlowLayout">true</con:setting>
+    <con:setting id="ErrorDetails">true</con:setting>
+    <con:setting id="IncludeCoverage">true</con:setting>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@disable_log">false</con:setting>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@errors_only">false</con:setting>
+    <con:setting id="com.smartbear.ready.history.view.ClientResultsView$OptionsForm@follow">false</con:setting>
+    <con:setting id="f3e9b067-4d6b-4e8d-a71b-be27787ce69dfileName">TC-1-JSON-flow</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>5</con:savedRecentRuns>
+  <con:testStep type="manualTestStep" name="Wprowadź adres z ręki" id="1d9e8056-e59b-4f70-8123-50f8f496834c" disabled="true">
+    <con:description>Wprowadź adres</con:description>
+    <con:settings/>
+    <con:config xsi:type="con:ManualTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:expectedResult>Adres zostanie użyty w kolejnym stepie</con:expectedResult>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Przenieś wprowadzony adres do requestu i do parametrów" id="cff67b43-8558-40cb-b200-dd95ecae60b4" disabled="true">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>adres wprowadzony ręcznie</con:name>
+        <con:sourceType>Result</con:sourceType>
+        <con:sourceStep>Wprowadź adres z ręki</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>address</con:targetType>
+        <con:targetStep>1. Sprawdź adres</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" disabled="false" entitize="false" ignoreEmpty="false" transferChildNodes="false" transferToAll="false" useXQuery="false">
+        <con:name>adres z ręki do parametrów</con:name>
+        <con:sourceType>Result</con:sourceType>
+        <con:sourceStep>Wprowadź adres z ręki</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>Adres z requestu</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:targetTransferType>XPATH</con:targetTransferType>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasource" name="DataSource" id="c054ab87-0f73-45b4-92d1-88d622a99fdb">
+    <con:settings/>
+    <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSource type="Excel">
+        <con:configuration>
+          <file>${projectDir}/!input.xlsx</file>
+          <worksheet/>
+          <cell>A1</cell>
+          <ignoreEmpty>false</ignoreEmpty>
+        </con:configuration>
+      </con:dataSource>
+      <con:property>address</con:property>
+      <con:completeLastOperation>true</con:completeLastOperation>
+      <con:restartOnRun>true</con:restartOnRun>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="1. Sprawdź adres" id="1ead31dd-a3c8-477b-bc25-918ae161b87d">
+    <con:settings/>
+    <con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="1. Sprawdź adres" id="9607ecd1-f1de-4844-a10c-f62e55c7b78b" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@dump-file">${#Project#Files_location}/Adres${#[WS TestSuite#TC 1 JSON flow]#licznik petli}.txt</con:setting>
+          <con:setting id="com.eviware.soapui.settings.CommonSettings@entitizeProperties">false</con:setting>
+        </con:settings>
+        <con:endpoint>http://maps.googleapis.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="2d065060-4631-46a3-98fa-65649539dfca" name="Valid HTTP Status Codes (200)">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:parameters>
+          <entry key="address" value="${DataSource#address}" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Przenieś dzielnicę z responsa do requestu" id="5782c8dc-2e4d-4516-8b9c-031c00e0fae8">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>long_name</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>1. Sprawdź adres</con:sourceStep>
+        <con:sourcePath>$['results'][0]['address_components'][2]['long_name']</con:sourcePath>
+        <con:targetType>address</con:targetType>
+        <con:targetStep>2. Sprawdź dzielnicę</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="2. Sprawdź dzielnicę" id="a61226cd-5f7a-47cd-83bc-401a79c7186a">
+    <con:settings/>
+    <con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="2. Sprawdź dzielnicę" id="9607ecd1-f1de-4844-a10c-f62e55c7b78b" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+          <con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@dump-file">${#Project#Files_location}/Dzielnica${#[WS TestSuite#TC 1 JSON flow]#licznik petli}.txt</con:setting>
+          <con:setting id="com.eviware.soapui.settings.CommonSettings@entitizeProperties">false</con:setting>
+          <con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@disable-property-expansions">false</con:setting>
+        </con:settings>
+        <con:endpoint>http://maps.googleapis.com</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="10181729-5517-4f2d-8bdb-094c052ee622" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:parameters>
+          <entry key="address" value="Śródmieście" xmlns="http://eviware.com/soapui/config"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="CreateAndWaitForRemoveFile" name="Stwórz plik" id="3f22b2b6-b694-45a1-9ac1-0c6892b3d1f0">
+    <con:settings/>
+    <con:config>
+      <FileName>CreatedFile.txt</FileName>
+      <FileContent>Krupówki 22</FileContent>
+      <FolderPath>${#Project#Files_location}</FolderPath>
+      <Timeout>0</Timeout>
+      <WaitForFileRemove>false</WaitForFileRemove>
+      <OverwriteExisting>true</OverwriteExisting>
+      <FileEncoding>Unicode</FileEncoding>
+      <Precision>seconds</Precision>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Zapisz dzielnicę z responsu do pliku i do mocka" id="977eacf8-9223-4309-9542-1b610c178ad2">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>do pliku</con:name>
+        <con:sourceType>Adres z requestu</con:sourceType>
+        <con:sourceStep>#TestCase#</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>fileContent</con:targetType>
+        <con:targetStep>Stwórz plik</con:targetStep>
+        <con:type>XPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>adres do requestu do mocka</con:name>
+        <con:sourceType>Adres - formatted - z responsu</con:sourceType>
+        <con:sourceStep>#TestCase#</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>address</con:targetType>
+        <con:targetStep>Wyslij request to mocka</con:targetStep>
+        <con:type>XPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datagen" name="DataGen - licznik" id="ef007292-91c8-4a10-8169-d6d102530587">
+    <con:settings/>
+    <con:config xsi:type="con:DataGeneratorStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:property type="Number">
+        <con:configuration>
+          <start>0</start>
+          <end/>
+          <step>1</step>
+          <pattern/>
+          <random>false</random>
+          <persist>false</persist>
+        </con:configuration>
+        <con:name>licznik</con:name>
+        <con:mode>STEP</con:mode>
+        <con:shared>false</con:shared>
+      </con:property>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Zapisz properties" id="629aeccf-1047-4a08-898e-b6c31a744021">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>adres z requestu</con:name>
+        <con:sourceType>address</con:sourceType>
+        <con:sourceStep>DataSource</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>Adres z requestu</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:type>XPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false" entitize="false" ignoreEmpty="false" transferChildNodes="false">
+        <con:name>formatted_address</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>1. Sprawdź adres</con:sourceStep>
+        <con:sourcePath>$['results'][0]['formatted_address']</con:sourcePath>
+        <con:targetType>Adres - formatted - z responsu</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>dzielnica z requestu</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>1. Sprawdź adres</con:sourceStep>
+        <con:sourcePath>$['results'][0]['address_components'][2]['long_name']</con:sourcePath>
+        <con:targetType>Dzielnica z requestu</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" transferToAll="false" entitize="false">
+        <con:name>formatted_address - dzielnica</con:name>
+        <con:sourceType>Response</con:sourceType>
+        <con:sourceStep>2. Sprawdź dzielnicę</con:sourceStep>
+        <con:sourcePath>$['results'][0]['formatted_address']</con:sourcePath>
+        <con:targetType>Dzielnica - long - z responsu</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:targetPath/>
+        <con:type>JSONPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>ustaw licznik</con:name>
+        <con:sourceType>licznik</con:sourceType>
+        <con:sourceStep>DataGen - licznik</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>licznik petli</con:targetType>
+        <con:targetStep>#TestCase#</con:targetStep>
+        <con:type>XPATH</con:type>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="transfer" name="Zapisz do parametrow DataSink" id="8f6f4002-d7c3-4897-a364-8a76708ee62d">
+    <con:settings/>
+    <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>do p1</con:name>
+        <con:sourceType>Adres - formatted - z responsu</con:sourceType>
+        <con:sourceStep>#TestCase#</con:sourceStep>
+        <con:sourcePath/>
+        <con:targetType>p1</con:targetType>
+        <con:targetStep>DataSink</con:targetStep>
+        <con:targetPath/>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>do p2</con:name>
+        <con:sourceType>Dzielnica - long - z responsu</con:sourceType>
+        <con:sourceStep>#TestCase#</con:sourceStep>
+        <con:targetType>p2</con:targetType>
+        <con:targetStep>DataSink</con:targetStep>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>do p3</con:name>
+        <con:sourceType>Dzielnica z requestu</con:sourceType>
+        <con:sourceStep>#TestCase#</con:sourceStep>
+        <con:targetType>p3</con:targetType>
+        <con:targetStep>DataSink</con:targetStep>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>do p4</con:name>
+        <con:sourceType>Dzielnica - long - z responsu</con:sourceType>
+        <con:sourceStep>#TestCase#</con:sourceStep>
+        <con:targetType>p4</con:targetType>
+        <con:targetStep>DataSink</con:targetStep>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+      <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+        <con:name>do p5</con:name>
+        <con:sourceType>licznik petli</con:sourceType>
+        <con:sourceStep>#TestCase#</con:sourceStep>
+        <con:targetType>p5</con:targetType>
+        <con:targetStep>DataSink</con:targetStep>
+        <con:upgraded>true</con:upgraded>
+      </con:transfers>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasink" name="DataSink" id="9cd064e7-4899-45fb-8ea8-cfb1141e2c4f">
+    <con:settings/>
+    <con:config xsi:type="con:DataSinkStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:dataSink type="Excel">
+        <con:configuration>
+          <file/>
+          <outfile>${#Project#Files_location}/parametry.xlsx</outfile>
+          <worksheet>Sheet1</worksheet>
+          <cell>A1</cell>
+          <evaluateFormulas>false</evaluateFormulas>
+        </con:configuration>
+      </con:dataSink>
+      <con:properties>
+        <con:property>
+          <con:name>p5</con:name>
+          <con:value>6</con:value>
+        </con:property>
+        <con:property>
+          <con:name>p1</con:name>
+          <con:value>Piotrkowska 10, Łódź, Poland</con:value>
+        </con:property>
+        <con:property>
+          <con:name>p2</con:name>
+          <con:value>Śródmieście, Warsaw, Poland</con:value>
+        </con:property>
+        <con:property>
+          <con:name>p3</con:name>
+          <con:value>Śródmieście</con:value>
+        </con:property>
+        <con:property>
+          <con:name>p4</con:name>
+          <con:value>Śródmieście, Warsaw, Poland</con:value>
+        </con:property>
+      </con:properties>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="delay" name="Delay" id="2609c3cb-a669-4690-8105-398fd9819c9f">
+    <con:settings/>
+    <con:config>
+      <delay>1000</delay>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="datasourceloop" name="DataSource Loop" id="15642ae3-29f1-4620-9ea9-a91f744b5841">
+    <con:settings/>
+    <con:config>
+      <dataSourceStep>DataSource</dataSourceStep>
+      <targetStep>1. Sprawdź adres</targetStep>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="VirtRunnerTestStep" name="Virt Runner - run mock" id="e2ad7806-69e7-44cb-92e2-663fc96ed97d">
+    <con:settings/>
+    <con:config>
+      <url>localhost</url>
+      <server>http://maps.googleapis.com Virt</server>
+      <action>run</action>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="restrequest" name="Wyslij request to mocka" id="6539a4b9-3018-4fea-ac8a-2dc16c2eed98">
+    <con:settings/>
+    <con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/json" methodName="json" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:restRequest name="Wyslij request to mocka" id="9607ecd1-f1de-4844-a10c-f62e55c7b78b" mediaType="application/json">
+        <con:settings>
+          <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+        </con:settings>
+        <con:endpoint>http://localhost:8080/</con:endpoint>
+        <con:request/>
+        <con:originalUri>http://maps.googleapis.com/maps/api/geocode/json</con:originalUri>
+        <con:assertion type="Valid HTTP Status Codes" id="9a9c0fd0-59c8-402d-a251-9f2a7f0c1c9e" name="Valid HTTP Status Codes">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+        <con:assertion type="JsonPath Match" id="2fe2ba7f-1166-423c-8e38-a87f8e01d353" name="Match content of [Status]">
+          <con:configuration>
+            <path>$['Status']</path>
+            <content>super OK</content>
+            <allowWildcards>false</allowWildcards>
+            <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+            <ignoreComments>false</ignoreComments>
+          </con:configuration>
+        </con:assertion>
+        <con:credentials>
+          <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+          <con:authType>No Authorization</con:authType>
+        </con:credentials>
+        <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+        <con:jmsPropertyConfig/>
+        <con:parameters>
+          <con:entry key="address" value="Krupówki 22, Zakopane, Poland"/>
+          <con:entry key="sensor" value="sensor"/>
+        </con:parameters>
+      </con:restRequest>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="VirtRunnerTestStep" name="Virt Runner - stop mock" id="559ec026-b369-40f9-9464-4f949a9f1373">
+    <con:settings/>
+    <con:config>
+      <url>localhost</url>
+      <server>http://maps.googleapis.com Virt</server>
+      <action>stop</action>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="assertionteststep" name="Assertion" id="acb6d54c-bcdc-40ef-9931-14541b298a21">
+    <con:settings/>
+    <con:config xsi:type="con:AssertionTestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:entry>
+        <con:id>ac18b407-4ab0-4fc9-9dd3-8bdc244888e2</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>f3e9b067-4d6b-4e8d-a71b-be27787ce69d</con:sourceId>
+        <con:propertyName>licznik petli</con:propertyName>
+        <con:assertion type="Simple Equals" name="Equals" id="4c7fa8a6-1692-4f38-9e7b-d23a042a15f4">
+          <con:configuration>
+            <patternText>6</patternText>
+            <caseSensitive>false</caseSensitive>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+      <con:entry>
+        <con:id>da2599a1-73f9-44e4-bf9d-dbedde2f1512</con:id>
+        <con:isGroup>false</con:isGroup>
+        <con:sourceId>1ead31dd-a3c8-477b-bc25-918ae161b87d</con:sourceId>
+        <con:propertyName>Response</con:propertyName>
+        <con:assertion type="Valid HTTP Status Codes" name="Valid HTTP Status Codes" id="c45c4683-67fa-455d-be86-253d3c0a4fbb">
+          <con:settings/>
+          <con:configuration>
+            <codes>200</codes>
+          </con:configuration>
+        </con:assertion>
+      </con:entry>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="httprequest" name="HTTP Request" id="f2f0e7eb-88f0-4b4b-b829-1aeb2eec2191">
+    <con:settings/>
+    <con:config method="GET" xsi:type="con:HttpRequest" id="9feae7a8-a253-4205-a3d2-e7e4ae7575f6" name="HTTP Request" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://google.pl</con:endpoint>
+      <con:request/>
+      <con:assertion type="XPath Match" id="2aa63ed0-4aec-4380-9ae5-4b31080949ba" name="Match content of [b]">
+        <con:configuration>
+          <path>//html[1]/body[1]/div[1]/div[1]/nobr[1]/b[1]/text()</path>
+          <content>Wyszukiwarka</content>
+          <allowWildcards>false</allowWildcards>
+          <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+          <ignoreComments>false</ignoreComments>
+        </con:configuration>
+      </con:assertion>
+      <con:credentials>
+        <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:parameters/>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="groovy" name="Groovy Script" id="1fb85a79-8eef-4267-8eea-57273c3450de">
+    <con:settings/>
+    <con:config>
+      <script>def adreszrequestu = context.expand( '${#TestCase#Adres z requestu}' )
+log.info adreszrequestu</script>
+    </con:config>
+  </con:testStep>
+  <con:testStep type="propertyWaitTestStep" name="Property Wait" id="035e4228-571a-462d-a5e1-8bd580a4a31d" disabled="true">
+    <con:settings/>
+    <con:config>
+      <scope>Environment Properties</scope>
+      <projectName>REST Testing Training</projectName>
+      <testSuiteName>WS TestSuite</testSuiteName>
+      <mockServiceName/>
+      <mockOperationName/>
+      <mockResponseName/>
+      <propertyName/>
+      <compareMethodName>Equals (==)</compareMethodName>
+      <valueToCompare/>
+      <timeout>10</timeout>
+      <timeoutMeasureName>seconds</timeoutMeasureName>
+    </con:config>
+  </con:testStep>
+  <con:tearDownScript/>
+  <con:properties>
+    <con:property>
+      <con:name>Adres z requestu</con:name>
+      <con:value>Piotrkowska 10</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Adres - formatted - z responsu</con:name>
+      <con:value>Piotrkowska 10, Łódź, Poland</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Dzielnica z requestu</con:name>
+      <con:value>Śródmieście</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Dzielnica - long - z responsu</con:name>
+      <con:value>Śródmieście, Warsaw, Poland</con:value>
+    </con:property>
+    <con:property>
+      <con:name>licznik petli</con:name>
+      <con:value>6</con:value>
+    </con:property>
+  </con:properties>
+  <con:reportParameters/>
+  <con:breakPoints>
+    <con:testStepId>a61226cd-5f7a-47cd-83bc-401a79c7186a</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>5782c8dc-2e4d-4516-8b9c-031c00e0fae8</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1d9e8056-e59b-4f70-8123-50f8f496834c</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>cff67b43-8558-40cb-b200-dd95ecae60b4</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1ead31dd-a3c8-477b-bc25-918ae161b87d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>977eacf8-9223-4309-9542-1b610c178ad2</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>3f22b2b6-b694-45a1-9ac1-0c6892b3d1f0</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>6539a4b9-3018-4fea-ac8a-2dc16c2eed98</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>f2f0e7eb-88f0-4b4b-b829-1aeb2eec2191</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>c054ab87-0f73-45b4-92d1-88d622a99fdb</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>15642ae3-29f1-4620-9ea9-a91f744b5841</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>e2ad7806-69e7-44cb-92e2-663fc96ed97d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>559ec026-b369-40f9-9464-4f949a9f1373</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>8f6f4002-d7c3-4897-a364-8a76708ee62d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>9cd064e7-4899-45fb-8ea8-cfb1141e2c4f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>629aeccf-1047-4a08-898e-b6c31a744021</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>ef007292-91c8-4a10-8169-d6d102530587</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>2609c3cb-a669-4690-8105-398fd9819c9f</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>1fb85a79-8eef-4267-8eea-57273c3450de</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>035e4228-571a-462d-a5e1-8bd580a4a31d</con:testStepId>
+    <con:status>NONE</con:status>
+    <con:properties/>
+  </con:breakPoints>
+  <con:breakPoints>
+    <con:testStepId>acb6d54c-bcdc-40ef-9931-14541b298a21</con:testStepId>
+    <con:status>ENABLED</con:status>
+    <con:properties/>
+  </con:breakPoints>
+</con:testCase>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="e02f7f2b-5adb-4564-b11b-d7ac25da16d6" activeEnvironment="Default environment" name="REST Testing Training WS" resourceRoot="${projectDir}" soapui-version="6.0.0" abortOnError="false" runType="SEQUENTIAL" lastOpened="2016-12-21T11:11:07.743+01:00" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="e02f7f2b-5adb-4564-b11b-d7ac25da16d6" activeEnvironment="Default environment" name="REST Testing Training WS" resourceRoot="${projectDir}" soapui-version="6.0.0" abortOnError="false" runType="SEQUENTIAL" lastOpened="2016-12-22T14:04:55.329+01:00" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="ProjectSettings@hermesConfig">C:\.hermes</con:setting>
     <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
