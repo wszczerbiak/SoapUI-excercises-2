@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="e02f7f2b-5adb-4564-b11b-d7ac25da16d6" activeEnvironment="Default environment" name="REST Testing Training WS" resourceRoot="${projectDir}" soapui-version="6.0.0" abortOnError="false" runType="SEQUENTIAL" lastOpened="2016-12-22T14:04:55.329+01:00" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="e02f7f2b-5adb-4564-b11b-d7ac25da16d6" activeEnvironment="Default environment" name="REST Testing Training WS" resourceRoot="${projectDir}" soapui-version="6.0.0" abortOnError="false" runType="SEQUENTIAL" lastOpened="2016-12-22T14:36:58.084+01:00" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="ProjectSettings@hermesConfig">C:\.hermes</con:setting>
     <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
@@ -48,6 +48,10 @@
     <con:property>
       <con:name>Files_location</con:name>
       <con:value>C:\Users\wszczerbiak\Documents\SoapUI-excercises-2\Files</con:value>
+    </con:property>
+    <con:property>
+      <con:name>Project_folder</con:name>
+      <con:value>SoapUI-excercises-2</con:value>
     </con:property>
   </con:properties>
   <con:afterLoadScript/>

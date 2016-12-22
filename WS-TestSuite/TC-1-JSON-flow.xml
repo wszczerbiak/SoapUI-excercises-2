@@ -52,7 +52,7 @@
     <con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <con:dataSource type="Excel">
         <con:configuration>
-          <file>${projectDir}/!input.xlsx</file>
+          <file>${projectDir}/${#Project#Project_folder}/Files/!input.xlsx</file>
           <worksheet/>
           <cell>A1</cell>
           <ignoreEmpty>false</ignoreEmpty>
