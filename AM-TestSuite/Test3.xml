@@ -1,2 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:testCase id="81939343-15a8-4806-b1a5-8f0c82507b4c" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Test3" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="81939343-15a8-4806-b1a5-8f0c82507b4cfileName">Test3</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:properties/><con:reportParameters/></con:testCase>
+<con:testCase id="81939343-15a8-4806-b1a5-8f0c82507b4c" discardOkResults="true" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="Test3" searchProperties="true" timeout="0" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="81939343-15a8-4806-b1a5-8f0c82507b4cfileName">Test3</con:setting></con:settings><con:savedRecentRuns>1</con:savedRecentRuns><con:testStep type="datasource" name="DataSource" id="919caa18-226a-4f52-81dc-4a4306715908"><con:settings/><con:config xsi:type="con:DataSourceStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:dataSource type="Excel"><con:configuration><file>${#Project#Files_location}/workAddresses.xlsx</file><worksheet/><cell>A2</cell><ignoreEmpty>false</ignoreEmpty></con:configuration></con:dataSource><con:property>Location</con:property><con:property>Address</con:property><con:completeLastOperation>true</con:completeLastOperation><con:restartOnRun>true</con:restartOnRun></con:config></con:testStep><con:testStep type="restrequest" name="workAddressNY" id="9ad5c80b-8621-4be2-822e-8d41e3720dd9"><con:settings/><con:config service="http://maps.googleapis.com" resourcePath="/maps/api/geocode/xml" methodName="Xml" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="workAddressNY" id="9fb31d4e-b5cb-4240-b219-34240ca5c76a" mediaType="application/json">
+      <con:settings>
+        <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+      </con:settings>
+      <con:endpoint>http://maps.googleapis.com</con:endpoint>
+      <con:request/>
+      <con:originalUri>http://maps.googleapis.com/maps/api/geocode/xml</con:originalUri>
+      <con:credentials>
+        <con:selectedAuthProfile>Inherit From Parent</con:selectedAuthProfile>
+        <con:authType>No Authorization</con:authType>
+      </con:credentials>
+      <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+      <con:jmsPropertyConfig/>
+      <con:parameters>
+        <entry key="address" value="Ludwninowska 11, Kraków" xmlns="http://eviware.com/soapui/config"/>
+      </con:parameters>
+      <con:parameterOrder>
+        <con:entry>address</con:entry>
+        <con:entry>sensor</con:entry>
+      </con:parameterOrder>
+    </con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>
