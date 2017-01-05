@@ -81,9 +81,6 @@
             <codes>200</codes>
           </con:configuration>
         </con:assertion>
-        <con:assertion type="JsonPath Match" id="7c7f4fdf-be1a-4a13-8501-6a2d0a0dd575" name="JsonPath Match">
-          <con:configuration/>
-        </con:assertion>
         <con:credentials>
           <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
           <con:authType>No Authorization</con:authType>
@@ -322,7 +319,7 @@
         </con:property>
         <con:property>
           <con:name>p1</con:name>
-          <con:value>Piotrkowska 10, �?ódź, Poland</con:value>
+          <con:value>Piotrkowska 10, Łódź, Poland</con:value>
         </con:property>
         <con:property>
           <con:name>p2</con:name>
@@ -491,7 +488,7 @@ log.info adreszrequestu</script>
     </con:property>
     <con:property>
       <con:name>Adres - formatted - z responsu</con:name>
-      <con:value>Piotrkowska 10, �?ódź, Poland</con:value>
+      <con:value>Piotrkowska 10, Łódź, Poland</con:value>
     </con:property>
     <con:property>
       <con:name>Dzielnica z requestu</con:name>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="e02f7f2b-5adb-4564-b11b-d7ac25da16d6" activeEnvironment="Default environment" name="REST Testing Training WS" resourceRoot="${projectDir}" soapui-version="6.0.0" abortOnError="false" runType="SEQUENTIAL" lastOpened="2017-01-04T16:22:43.183+01:00" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="e02f7f2b-5adb-4564-b11b-d7ac25da16d6" activeEnvironment="Default environment" name="REST Testing Training WS" resourceRoot="${projectDir}" soapui-version="6.0.0" abortOnError="false" runType="SEQUENTIAL" lastOpened="2016-12-22T14:36:58.084+01:00" xmlns:con="http://eviware.com/soapui/config">
   <con:settings>
     <con:setting id="ProjectSettings@hermesConfig">C:\.hermes</con:setting>
     <con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.ProTestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
@@ -81,7 +81,7 @@
         <con1:property key="limits">Time=60;</con1:property>
       </con1:attributes>
       <con1:addons/>
-      <con1:scene label="New Scenario" id="228ddf0a-5c1d-48bf-aefa-77367fc3030a" version="77">
+      <con1:scene label="New Scenario" id="228ddf0a-5c1d-48bf-aefa-77367fc3030a" version="71">
         <con1:properties>
           <con1:property propagates="true" key="ModelItem.description" type="java.lang.String"/>
           <con1:property propagates="true" key="CanvasItem.abortOnFinish" type="java.lang.Boolean">true</con1:property>
