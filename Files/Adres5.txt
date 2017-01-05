@@ -1,0 +1,64 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "10",
+               "short_name" : "10",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Piotrkowska",
+               "short_name" : "Piotrkowska",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Śródmieście",
+               "short_name" : "Śródmieście",
+               "types" : [ "political", "sublocality", "sublocality_level_1" ]
+            },
+            {
+               "long_name" : "Łódź",
+               "short_name" : "Łódź",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Łódź",
+               "short_name" : "Łódź",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "województwo łódzkie",
+               "short_name" : "województwo łódzkie",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Piotrkowska 10, Łódź, Poland",
+         "geometry" : {
+            "location" : {
+               "lat" : 51.775084,
+               "lng" : 19.455265
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 51.7764329802915,
+                  "lng" : 19.4566139802915
+               },
+               "southwest" : {
+                  "lat" : 51.7737350197085,
+                  "lng" : 19.4539160197085
+               }
+            }
+         },
+         "place_id" : "ChIJRebLTNfKG0cRaZ9cENsXaUo",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}

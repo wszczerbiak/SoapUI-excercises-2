@@ -1,0 +1,59 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Zakopane",
+               "short_name" : "Zakopane",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Tatra County",
+               "short_name" : "Tatra County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Lesser Poland Voivodeship",
+               "short_name" : "Lesser Poland Voivodeship",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Zakopane, Poland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 49.33333589999999,
+                  "lng" : 20.04703
+               },
+               "southwest" : {
+                  "lat" : 49.2184467,
+                  "lng" : 19.9007214
+               }
+            },
+            "location" : {
+               "lat" : 49.299181,
+               "lng" : 19.9495621
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 49.33333589999999,
+                  "lng" : 20.04703
+               },
+               "southwest" : {
+                  "lat" : 49.2184467,
+                  "lng" : 19.9007214
+               }
+            }
+         },
+         "place_id" : "ChIJOTnvlJLyFUcRoKZrcaGHjd8",
+         "types" : [ "locality", "political" ]
+      }
+   ],
+   "status" : "OK"
+}

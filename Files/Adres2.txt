@@ -1,0 +1,300 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "15",
+               "short_name" : "15",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Wrocławska",
+               "short_name" : "Wrocławska",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Bemowo",
+               "short_name" : "Bemowo",
+               "types" : [ "political", "sublocality", "sublocality_level_1" ]
+            },
+            {
+               "long_name" : "Warszawa",
+               "short_name" : "Warszawa",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Warszawa",
+               "short_name" : "Warszawa",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "mazowieckie",
+               "short_name" : "mazowieckie",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Wrocławska 15, Warszawa, Poland",
+         "geometry" : {
+            "location" : {
+               "lat" : 52.2540989,
+               "lng" : 20.923222
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 52.25544788029149,
+                  "lng" : 20.9245709802915
+               },
+               "southwest" : {
+                  "lat" : 52.2527499197085,
+                  "lng" : 20.9218730197085
+               }
+            }
+         },
+         "place_id" : "ChIJn_c1pqrLHkcRQt264OxCtfA",
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "15",
+               "short_name" : "15",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Wrocławska",
+               "short_name" : "Wrocławska",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Krowodrza",
+               "short_name" : "Krowodrza",
+               "types" : [ "political", "sublocality", "sublocality_level_1" ]
+            },
+            {
+               "long_name" : "Kraków",
+               "short_name" : "Kraków",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Kraków",
+               "short_name" : "Kraków",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "małopolskie",
+               "short_name" : "małopolskie",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Wrocławska 15, Kraków, Poland",
+         "geometry" : {
+            "location" : {
+               "lat" : 50.0758743,
+               "lng" : 19.9300773
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 50.0772232802915,
+                  "lng" : 19.9314262802915
+               },
+               "southwest" : {
+                  "lat" : 50.0745253197085,
+                  "lng" : 19.9287283197085
+               }
+            }
+         },
+         "place_id" : "ChIJrRLxW6pbFkcRGIwydtzi0yI",
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "15",
+               "short_name" : "15",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Wrocławska",
+               "short_name" : "Wrocławska",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Wałbrzych",
+               "short_name" : "Wałbrzych",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "wałbrzyski",
+               "short_name" : "wałbrzyski",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Województwo dolnośląskie",
+               "short_name" : "Województwo dolnośląskie",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "58",
+               "short_name" : "58",
+               "types" : [ "postal_code", "postal_code_prefix" ]
+            }
+         ],
+         "formatted_address" : "Wrocławska 15, Wałbrzych, Poland",
+         "geometry" : {
+            "location" : {
+               "lat" : 50.798657,
+               "lng" : 16.289951
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 50.80000598029149,
+                  "lng" : 16.2912999802915
+               },
+               "southwest" : {
+                  "lat" : 50.7973080197085,
+                  "lng" : 16.2886020197085
+               }
+            }
+         },
+         "place_id" : "ChIJ-7EBtgRUDkcRDGRuN-f77NM",
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "15",
+               "short_name" : "15",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Wrocławska",
+               "short_name" : "Wrocławska",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Bytom",
+               "short_name" : "Bytom",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Bytom",
+               "short_name" : "Bytom",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "śląskie",
+               "short_name" : "śląskie",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "41-902",
+               "short_name" : "41-902",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Wrocławska 15, 41-902 Bytom, Poland",
+         "geometry" : {
+            "location" : {
+               "lat" : 50.351669,
+               "lng" : 18.893555
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 50.3530179802915,
+                  "lng" : 18.8949039802915
+               },
+               "southwest" : {
+                  "lat" : 50.35032001970851,
+                  "lng" : 18.8922060197085
+               }
+            }
+         },
+         "place_id" : "ChIJZxUFg9AsEUcRHymxAhjotyA",
+         "types" : [ "street_address" ]
+      },
+      {
+         "address_components" : [
+            {
+               "long_name" : "15",
+               "short_name" : "15",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Wrocławska",
+               "short_name" : "Wrocławska",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Legnica",
+               "short_name" : "Legnica",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Legnica",
+               "short_name" : "Legnica",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Województwo dolnośląskie",
+               "short_name" : "Województwo dolnośląskie",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "59",
+               "short_name" : "59",
+               "types" : [ "postal_code", "postal_code_prefix" ]
+            }
+         ],
+         "formatted_address" : "Wrocławska 15, Legnica, Poland",
+         "geometry" : {
+            "location" : {
+               "lat" : 51.209295,
+               "lng" : 16.16856
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 51.2106439802915,
+                  "lng" : 16.1699089802915
+               },
+               "southwest" : {
+                  "lat" : 51.2079460197085,
+                  "lng" : 16.1672110197085
+               }
+            }
+         },
+         "place_id" : "ChIJZU9bipsSD0cR-dQH8MTOJes",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}

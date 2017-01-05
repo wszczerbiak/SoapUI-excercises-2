@@ -1,0 +1,69 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "11",
+               "short_name" : "11",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Ludwinowska",
+               "short_name" : "Ludwinowska",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Dębniki",
+               "short_name" : "Dębniki",
+               "types" : [ "political", "sublocality", "sublocality_level_1" ]
+            },
+            {
+               "long_name" : "Kraków",
+               "short_name" : "Kraków",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Kraków",
+               "short_name" : "Kraków",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "małopolskie",
+               "short_name" : "małopolskie",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "30-331",
+               "short_name" : "30-331",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Ludwinowska 11, 30-331 Kraków, Poland",
+         "geometry" : {
+            "location" : {
+               "lat" : 50.0441964,
+               "lng" : 19.9381922
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 50.04554538029149,
+                  "lng" : 19.9395411802915
+               },
+               "southwest" : {
+                  "lat" : 50.0428474197085,
+                  "lng" : 19.9368432197085
+               }
+            }
+         },
+         "place_id" : "ChIJRQA0yGdbFkcRMjYnTkXxYds",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}

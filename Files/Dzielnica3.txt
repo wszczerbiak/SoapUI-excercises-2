@@ -1,0 +1,59 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "Kolobrzeg",
+               "short_name" : "Kolobrzeg",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Kołobrzeg County",
+               "short_name" : "Kołobrzeg County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "West Pomeranian Voivodeship",
+               "short_name" : "West Pomeranian Voivodeship",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Poland",
+               "short_name" : "PL",
+               "types" : [ "country", "political" ]
+            }
+         ],
+         "formatted_address" : "Kolobrzeg, Poland",
+         "geometry" : {
+            "bounds" : {
+               "northeast" : {
+                  "lat" : 54.2010522,
+                  "lng" : 15.6859865
+               },
+               "southwest" : {
+                  "lat" : 54.1491317,
+                  "lng" : 15.513656
+               }
+            },
+            "location" : {
+               "lat" : 54.17591729999999,
+               "lng" : 15.5832667
+            },
+            "location_type" : "APPROXIMATE",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 54.2009132,
+                  "lng" : 15.6859864
+               },
+               "southwest" : {
+                  "lat" : 54.1491317,
+                  "lng" : 15.5137055
+               }
+            }
+         },
+         "place_id" : "ChIJH1fCLJgVAEcRDcAU_5wCqzQ",
+         "types" : [ "locality", "political" ]
+      }
+   ],
+   "status" : "OK"
+}
